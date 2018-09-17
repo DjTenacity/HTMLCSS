@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css学习</title>
+    <style type="text/css">
+    	.box, box1,box2,box3{
+    		width: 100px;
+    		height: 100px;
+    		background: gray;
+    		/*solid实线  dashed虚线  dotted点线*/
+    		border-bottom: 10px solid #000;
+			border-top: : 10px  dashed#000;
+			border-right: 10px  dotted#000;
+
+			/*上右下左   margin 同样*/
+			/*padding: 10px 10px 10px 10px ;*/
+
+			/*上(10px) 右左(30px) 下(10px)  同样*/
+			/*padding: 10px 30px 10px;*/
+			/* 上下(10px) 右左(30px)  同样*/
+			padding: 10px 30px;
+
+			/*让盒子水平居中*/
+			margin: 100px auto;
+    	}
+    	.news{
+    		widows: 385px;
+    		height: 35px;
+    		border-top: 1px solid #f00;
+    		border-bottom: 3px solid #666;
+    		font-size: 20px;
+    		font-family: 'Microsoft Yahei';
+    		/*Microsoft Yahei 默认行高会改变*/
+    		line-height: 20px;
+    		color: #333
+    		padding-left: 15px;
+    		padding-top: 15px;
+    	}
+    	/*实际多用*/
+    	.news2 div{
+			widows: 400px;
+    		height: 50px;
+    		border-top: 1px solid #f00;
+    		border-bottom: 3px solid #666;
+    		font-size: 20px;
+    		font-family: 'Microsoft Yahei';
+    		/*Microsoft Yahei 默认行高会改变*/
+    		line-height: 50px;
+    		/*首行缩进*/
+    		text-indent: 15px;
+
+    </style>
+
+</head>
+
+<body>
+
+	<div class="box">
+			盒子的真实尺寸计算:
+					宽度: width + 左右的padding值 + 左右的border的值
+					高度: height + 上下的padding值 + 上下的border的值
+	</div>
+<div class="news"> 新闻标题 </div>
+<br>
+<div class="news2"> 新闻标题  Nava#5151 </div>
+	</body>
+	</html>

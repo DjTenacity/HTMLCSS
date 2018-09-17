@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css学习</title>
+     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!-- <style type="text/css">
+    	 div{
+    	 	color: red;
+    	 	font-size:20px;
+    	 	line-height:40px;
+    	 	font-family:Microsoft Yahei;
+    	 }
+    </style>  -->
+
+    <style type="text/css">
+    	<span{
+    		font-weight: bold;
+    	}
+    	h2{
+    		/*font 同时设置文字的几个属性，写的顺序有兼容问题，建议按照如下顺序写： font：是否加粗 字号/行高 字体；如： font:normal 12px/36px '微软雅黑';*/
+
+    		font: normal;20px;Microsoft Yahei;
+    		/*font-size:20px;*/
+    		/*不加粗*/
+    		/*font-weight: normal;*/
+    	}
+    	a{
+    		text-decoration: none;
+    	}
+
+    </style>
+</head>
+<body>
+	<a href="表"></a>
+<h2>css学习</h2>
+	<!-- <div style="color: red;font-size:20px;background:gray;line-height:40px;font-family: Microsoft Yahei;"></div> -->
+		<div>
+		css的定义方法是：
+
+选择器 { 属性:值; 属性:值; 属性:值;}
+
+选择器是将样式和页面元素关联起来的名称，属性是希望设置的样式属性每个属性有一个或多个值。代码示例：
+
+div{ width:100px; height:100px; color:red }
+
+	</div>
+	<br>
+	<br>
+	<div>
+		css页面引入方法：
+
+1、外联式：通过link标签，链接到外部样式表到页面中。<em>HyperText Mark-up Language</em>
+
+
+"<"link rel="stylesheet" type="text/css" href="css/main.css">
+
+
+2、嵌入式：通过style标签，在网页上创建嵌入的样式表。
+
+
+""<""style type="text/css">
+    div{ width:100px; height:100px; color:red }
+    ......
+
+<span>3、内联式：通过标签的style属性，在标签上直接写样式。</span>
+
+
+""<""div style="width:100px; height:100px; color:red ">......
+
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单</title>
+</head>
+<body>
+
+<h3>用户注册</h3>
+<form action="http://www.itcast.cn" method="post">
+    <!--label 标注表单前面的文字  for="username_id" 点击汉字也能让输入框获取焦点,提高用户体验-->
+    <div>
+        <label for="username_id">用户名:</label>
+        <input type="text" name="username" id="username_id" value="DJ">
+    </div>
+    <br>
+    <div>
+        <label>密码:</label>
+        <input type="password" name="pwd">
+    </div>
+    <br>
+    <div>
+        <label>性别:</label>
+        <input type="radio" name="gender" id="male" value="0"> <label for="male">男 </label>
+        <input type="radio" name="gender" id="female" value="1"> <label for="female"> 女</label>
+    </div>
+    <br>
+    <div>
+        <label>爱好:</label>
+        <input type="checkbox" name="like" value="a"> 单机游戏
+        <input type="checkbox" name="like" value="b"> 网络游戏
+        <input type="checkbox" name="like" value="c"> 联机游戏
+
+    </div>
+    <br>
+    <div>
+        <label>照片:</label>
+        <input type="file" name="photo">
+    </div>
+    <br>
+    <div>
+        <label>籍贯:</label>
+        <select>
+            <option value="0">北京</option>
+            <option value="1">上海</option>
+            <option value="2">广州</option>
+            <option value="3">深圳</option>
+
+        </select>
+
+    </div>
+    <br>
+    <div>
+        <label>自我评价:</label>
+        <textarea  value="info"></textarea>
+    </div>
+    <br>
+    <br>
+
+    <!--hid本身不会显示出来, 但是会把这个这个值上传给后台-->
+    <input type="hidden" name="hid" value="10000">
+
+
+    <input type="submit" name="submit" value="提交">
+    <input type="reset" name="reset" value="重置">
+
+
+    <!--<input type="button" name="reset" value="重置">-->
+
+</form>
+
+</body>
+</html>

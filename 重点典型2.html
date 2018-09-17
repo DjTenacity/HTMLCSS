@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<title>重点学习2</title>
+
+	<style type="text/css">
+		
+	.menu{
+		/*去掉自带的 点*/
+		list-style: none;
+		background-color: #55a8ea;
+		width:960px;
+		height: 40px; 
+		margin: 50px auto 0;
+		padding: 0;
+		position: relative;
+	}
+	.menu li{
+		float: left;
+		width:100px;
+		height: 40px;
+		text-align: center;
+		line-height: 40px;
+	}
+	.menu li:hover{
+		background-color:#00619f;
+	}
+	.menu li a{
+		/*font-size: 14px;
+		font-family: 'Microsoft Yahei';*/
+		color: #fff;
+		font:14px/40px 'Microsoft Yahei';
+		text-decoration: none;
+	}
+	.menu .active{
+		background-color: #00619f;
+	}
+	.menu .new{
+		width: 38px;
+		height: 41px;
+		background: url(images/icon_home_p.png);
+		position: absolute;
+		left: 422px;
+		top: -38px;
+	}
+	.menu .new:hover{
+		background: url(images/icon_home_p.png) no-repeat;
+	}
+	/*=-----------------特征布局------------====*/
+	.new_list_con{
+		width: 600px;
+		height: 289px;
+		margin: 50px auto 0;
+		border:1px solid #ddd;
+		/* 超出的隐藏*/
+		overflow: hidden;
+	}
+	.new_list_con h3{
+		height: 50px;
+		width: 560px;
+		border-bottom: 1px solid #ddd;
+		margin: 0px auto;
+	}
+	.new_list_con h3 span{
+		/*默认行内元素,转为行内块元素*/
+		display: inline-block;
+		height: 50px;
+		border-bottom: 2px solid red; 
+		font: 18px/50px 'Microsoft Yahei';
+		padding: 0 15px;
+		/*兼容性,让它保持在原来的位置,不会跳出来*/
+		position: relative;
+	}
+	.new_list_con ul{
+		padding: 0;
+		list-style: none;
+		height: 238px;
+		width: 560px;
+		border-bottom: 1px solid #ddd;
+		margin: 4px auto;
+	}
+
+	.new_list_con ul li{
+		height: 38px;
+		border-bottom: 1px solid #f0f0f0;
+	}
+	.new_list_con ul a{
+		float: left;
+		height: 38px;
+		line-height: 38px;
+		text-decoration: 0;
+		font: 14px/38px 'Microsoft Yahei';
+	}
+	.new_list_con ul a:before{
+		content: ". ";
+	}
+	.new_list_con ul a:hover{
+		color: yellow;
+	}
+	.new_list_con ul span{
+		float: right;
+		height: 38px;
+		line-height: 38px;
+		text-decoration: 0;
+		font: 14px/38px 'Microsoft Yahei';
+	}
+
+	</style>
+</head>
+<body>
+	<!-- ul>(li>a)*7 -->
+	<ul class="menu">
+		<li>
+			<a href="">首 页</a>
+		</li>
+		<li>
+			<a href="">首 页</a>
+		</li>
+		<li>
+			<a href="">首 页</a>
+		</li>
+		<li class="active">
+			<a href="">网站建设</a>
+		</li>
+		<li>
+			<a href="">网站建设</a>
+		</li>
+		<li class="new"></li>
+		<li>
+			<a href="">网站建设</a>
+		</li>
+	</ul>
+	<br>
+	<!--  -->
+
+	<div class="new_list_con">
+		<h3> <span>新闻列表</span> </h3>
+		<!-- ul>(li>a+span)*6 -->
+		<ul >
+		<li>
+			<a href="">特征布局</a> <span> 2018-08-31</span>
+		</li>
+		<li>
+			<a href="">特征布局</a> <span>2018-08-31 </span>
+		</li>
+		<li>
+			<a href="">特征布局</a> <span> 2018-08-31</span>
+		</li>
+		<li>
+			<a href="">特征布局</a> <span>2018-08-31 </span>
+		</li> 
+		<li>
+			<a href="">特征布局</a> <span> 2018-08-31</span>
+		</li>
+		<li>
+			<a href="">特征布局</a> <span> 2018-08-31</span>
+		</li> 
+	</ul>
+
+	</div>
+
+</body>
+</html>

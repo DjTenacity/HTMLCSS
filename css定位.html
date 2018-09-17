@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css选择器</title>
+
+    <style type="text/css">
+
+    	.con{
+    		width: 400px;
+    		height: 300px;
+    		border: 1px solid #000;
+    		margin: 100px auto 0;
+    	}
+
+    	.con div{
+    		width: 200px;
+    		height: 100px;
+    		margin: 20px;
+    		background-color: gold;
+    		text-align: center;
+    		line-height: 50px;
+    		font-size: 10px;
+    	}
+    	body .box01{
+    		/*body .box01  来增加权重, 否则颜色设置不会变化*/
+    		position: relative;
+    		left: 50px;
+    		top: 50px;
+    		line-height: 100px;
+    		background-color: blue;
+    	}
+    	body .box02{
+    		/*绝对定位*/
+    		position: absolute;
+    		left: 50px;
+    		top: 50px;
+    		line-height: 100px;
+    		background-color: blue;
+    	}
+    	body .box03{
+    		/*绝对定位*/
+    		width: 300px;
+    		height: 100px;
+    		position: absolute;
+    		left: 150px;
+    		top: 150px;
+    		line-height: 150px;
+    		background-color: blue;
+    		background:url(images/weiqubaba.jpg) -110px -150px gold;
+    	}
+    	
+
+    </style>
+
+
+</head>
+<body>
+
+	<div class="con">
+		<div class="box01">相对定位,相对本身</div> 
+		<div class="box02">绝对定位,</div> 
+		<div class="box03"></div> 
+		<div class="box04">4</div> 
+	</div>
+</body>
+</html>
