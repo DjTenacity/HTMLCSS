@@ -143,7 +143,6 @@ body{
 .center_con{
 	width: 1200px;
 	height: 270px;
-	background-color: cyan;
 	margin: 0 auto;
 }
 .center_con .main_menu{
@@ -166,7 +165,8 @@ body{
 	height: 44px; 
 	font:14/44px 'Microsoft Yahei';
 	color: #333;
-	text-indent: 77px;
+	text-indent: 57px;
+	padding-top: 14px;
 	background: url(../images/icons2.png) 33px 0px no-repeat;
 }
 
@@ -188,4 +188,68 @@ body{
 }
 .center_con .main_menu li .ice{
 	background-position: 3px  -329px;
+}
+
+
+/*<!-- 幻灯片 -->*/
+.slide_con{
+	width: 760px;
+	height: 270px;
+	position: relative;
+}
+.slide_img{
+	width: 760px;
+	height: 270px;
+}
+
+.prev,.next{
+	width: 15px;
+	height: 23px;
+	position: absolute;
+	left: 11px;
+	top: 122px;
+	cursor: pointer;
+	background-color: red;
+	/*background: url(../images/ic_back_white.png) 33px 0px no-repeat;*/
+}
+.next{
+	left: 732px;
+	/*background: url(../images/ic_arrow_right_white.png) 33px 0px no-repeat;*/
+}
+.points{
+	position: absolute;
+	/*width: 100%;---->不定位的时候 是块元素 ,定位的话是行内块元素*/
+	width: 100%;
+	height: 11px;
+	left: 0;
+	text-align: center;
+	bottom: 9px;
+	font-size: 0px;
+}
+.points li{
+	width: 11px;
+	height: 11px;
+	background-color: #9f9f9f;
+	display: inline-block;
+	margin: 0 5px;
+	/*指半径是高度的一半*/
+	border-radius: 50%;
+}
+.points .active{
+	background-color: #cecece;
+}
+.adv{
+	width: 240px;
+	height: 270px;
+}
+.adv a{
+	/*a 默认行元素 ,浮动--->行内快元素*/
+	/*行元素  有莫名其妙的间距,,浮动能解决*/
+	float: left;
+	width: 240px;
+	height: 135px;
+}
+/*有时候下面会有几个像素的空白的bug,解决方案如下*/
+.adv a img{
+	display: block;
 }
