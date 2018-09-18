@@ -51,14 +51,14 @@ body{
 	margin:0 auto;
 }
 .logo{
-	width:151px;
-	height:59px;
-	margin:0px 0 0 17px;
+	width:156px;
+	height:83px;
+	margin:0 0 0 0px;
 }
 .search{
 	width:616px;
 	height:38px;
-	border:1px solid #37ab91;
+	border:1px solid #517fbb;
 	margin:34px 0 0 123px;
 	background: url(../images/ic_search.png) 8px 9px no-repeat;
 }
@@ -74,7 +74,7 @@ body{
 	width:100px;
 	height:38px;
 	border: 0px;
-	background-color: green;
+	background-color: #517fbb;
 	font: 14px/38px 'Microsoft Yahei';
 	color: #fff;
 	/*设置鼠标形状---手*/
@@ -105,7 +105,7 @@ body{
 }
 .sub_menu_con{
 	height: 40px;
-	border-bottom: : 2px solid #37ab40;
+	border-bottom: : 2px solid #517fbb;
 }
 .sub_menu{
 	width: 1200px;
@@ -116,7 +116,7 @@ body{
 .sub_menu h1{
 	width: 200px;
 	height: 40px;
-	background-color: #37ab40;
+	background-color: #517fbb;
 	color: #fff;
 	font:14px/40px  'Microsoft Yahei';
 	text-align: center;
@@ -197,10 +197,6 @@ body{
 	height: 270px;
 	position: relative;
 }
-.slide_img{
-	width: 760px;
-	height: 270px;
-}
 
 .prev,.next{
 	width: 15px;
@@ -252,4 +248,119 @@ body{
 /*有时候下面会有几个像素的空白的bug,解决方案如下*/
 .adv a img{
 	display: block;
+}
+
+/*<!-- 商品列表 -->*/
+.common_model{
+	width: 1200px;
+	height: 340px;
+	margin: 18px auto 0;
+	/*background-color: cyan;*/
+}
+.common_model .common_title{
+	/*宽度不给的话,是父元素的100%*/
+	height: 38px;
+	border-bottom: 1px solid blue;
+}
+.common_model .common_title h3{
+	font:bold 16px/38px 'Microsoft Yahei';
+	color: #517fbb;
+}
+.common_model .common_title ul{
+	height: 12px;
+	/*border-left: 1px solid #666;*/
+	margin: 12px 0 0 20px;
+}
+/*微软雅黑默认有行高*/
+.common_model .common_title li{
+	float: left;
+	margin: 0 10px;
+}
+.common_model .common_title li a{
+	line-height: 10px;
+	font-size: 12px;
+	color: #666;
+}
+.common_model .common_title li a:hover{
+	color: #f80;
+}
+.common_model .common_title .more{
+	height: 38px;
+	line-height: 38px;
+	color: #666;
+}
+.common_model .common_title .more:hover{
+	color: #f80;
+}
+.common_model .common_goods_list{
+	width: 1200px;
+	height: 300px;
+}
+
+.common_model .common_goods_list .goods_banner{
+	width: 200px;
+	height: 300px;
+}
+.common_model .common_goods_list .goods_list{
+	width: 1000px;
+	height: 300px;
+}
+
+.common_model .common_goods_list .goods_list li{
+	width: 249px;
+	height: 299px;
+	float: left;
+	border-right: 1px solid #ededed;
+	border-bottom: 1px solid #ededed;
+}
+.common_model .common_goods_list .goods_list li:hover{
+	width: 248px;
+	height: 298px;
+	border: 1px solid #f80;
+}
+.common_model .common_goods_list .goods_list li h4{
+	height: 52px;
+	color: #666;
+	text-align: center;
+	font:14px/52px 'Microsoft Yahei';
+}
+.common_model .common_goods_list .goods_list li a{
+	display: block;
+	height: 180px;
+	width: 180px;
+	margin: 0 auto;
+}
+.common_model .common_goods_list .goods_list li p{
+	display: block;
+	height: 52px;
+	text-align: center;
+	font:bold 20px/52px 'Microsoft Yahei';
+	color: #c40000;
+	margin: 14px;
+}
+
+/*尾部 没有maartop塌陷是应为有边框*/
+.footer{
+	height: 145px;
+	border-top: 2px solid #517fbb;
+	margin-top:30px;
+}
+.footer .links{
+	text-align: center;
+	margin-top: 40px;
+}
+.footer .links a{
+	color: #4e4e4e;
+}
+.footer .links a:hover{
+	color: #f80;
+}
+.footer .links span{
+	margin: 0 10px ;
+}
+.footer p{
+	text-align: center;
+	line-height: 27px;
+	color: #4e4e4e;
+
 }
