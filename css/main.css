@@ -4,6 +4,7 @@ body{
 	font-size: 12px;
 }
 
+/********************************首頁**************************************/
 /*顶部状态条样式  */
 
 .header_con{
@@ -56,15 +57,16 @@ body{
 	margin:0 0 0 0px;
 }
 .search{
-	width:616px;
-	height:38px;
+	/*最好的办法就是ｃｏｎｔａｉｎｅｒ不要设置宽度*/
+	/*width:616px;*/
+	/*height:38px;*/
 	border:1px solid #517fbb;
 	margin:34px 0 0 123px;
 	background: url(../images/ic_search.png) 8px 9px no-repeat;
 }
 .search .input_text{
 	width:470px;
-	height:38px;
+	height:36px;
 	border: 0px;
 	margin-left: 37px;
 	/*外框*/
@@ -197,20 +199,20 @@ body{
 	height: 270px;
 	position: relative;
 }
-
+/*如果你的背景图片小于你的ｃｏｎｔａｉｎｅｒ ,不设置ｎｏ－ｒｅｐｅａｔ,直到填满 ,整个ｃｏｎｔａｉｎｅｒ ,ｎｏ－ｒｅｐｅａｔ只是说只渲染一次，不要重复渲染*/
 .prev,.next{
-	width: 15px;
-	height: 23px;
+	width: 30px;
+	height: 46px;
 	position: absolute;
 	left: 11px;
-	top: 122px;
+	top: 112px;
 	cursor: pointer;
-	background-color: red;
-	/*background: url(../images/ic_back_white.png) 33px 0px no-repeat;*/
+	/*background-color: red;   no-repeat*/
+	background: url(../images/ic_back_white.png) 33px 0px;
 }
 .next{
 	left: 732px;
-	/*background: url(../images/ic_arrow_right_white.png) 33px 0px no-repeat;*/
+	background: url(../images/ic_arrow_right_white.png) 33px 0px  ;
 }
 .points{
 	position: absolute;
@@ -362,5 +364,49 @@ body{
 	text-align: center;
 	line-height: 27px;
 	color: #4e4e4e;
-
 }
+
+/********************************登录页**************************************/
+.login_header{
+	width: 953px;
+	height: 133px;
+	margin: 0 auto;
+	background-color: cyan;
+}
+.login_header a{
+	display: block;
+	margin-top: 28px;
+	width: 193px;
+	height: 76px;
+}
+.login_form_con{
+	/*不给宽度,宽度就是100%*/
+	height: 482px;
+	background-color: blue;
+}
+.login_form{
+	width: 953px;
+	height: 482px;
+	margin: 0 auto;
+}
+.login_form img{
+	float: left;
+	margin: 92px 0 0 15px;
+}
+.login_form .slogan{
+	color: #fff;
+	font-size: 30px;
+	width: 30px;
+	height: 300px;
+	text-align: center;
+	line-height: 36px;
+	margin: 87px 0 0 114px;
+}
+.login_form .form_input_con{
+	width: 368px;
+	height: 376px
+	background-color:#fff;
+	border: 1px solid #ddd;
+	margin-top: 39px;
+}
+
