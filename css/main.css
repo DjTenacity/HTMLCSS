@@ -107,7 +107,7 @@ body{
 }
 .sub_menu_con{
 	height: 40px;
-	border-bottom: : 2px solid #517fbb;
+	border-bottom: 2px solid #517fbb;
 }
 .sub_menu{
 	width: 1200px;
@@ -371,7 +371,6 @@ body{
 	width: 953px;
 	height: 133px;
 	margin: 0 auto;
-	background-color: cyan;
 }
 .login_header a{
 	display: block;
@@ -381,15 +380,17 @@ body{
 }
 .login_form_con{
 	/*不给宽度,宽度就是100%*/
-	height: 482px;
-	background-color: blue;
+	height: 480px;
+	border-top: 1px solid #79a652;
+	border-bottom: 1px solid #79a652;
+	/*background-color: cyan;*/
 }
 .login_form{
 	width: 953px;
 	height: 482px;
 	margin: 0 auto;
 }
-.login_form img{
+.login_form .login_banner{
 	float: left;
 	margin: 92px 0 0 15px;
 }
@@ -404,9 +405,78 @@ body{
 }
 .login_form .form_input_con{
 	width: 368px;
-	height: 376px
+	height: 378px
 	background-color:#fff;
-	border: 1px solid #ddd;
-	margin-top: 39px;
+	border: 1px solid #c6c6c5;
+	margin-top: 50px;
 }
-
+.login_footer{
+	margin-top: 0px;
+	border-top: 0px;
+}
+.form_title{
+	width: 308px;
+	height: 70px;
+	border-bottom: 1px solid #e0e0e0;
+	margin: 0 auto;
+}
+.form_title h1{
+	float: left;
+	height: 70px;
+	font:bold 24px/70px 'Microsoft Yahei';
+	color: #a8a8a8;
+	margin-left: 44px;
+}
+.form_title a{
+	float: left;
+	width: 100px;
+	height: 16px;
+	font:16px/16px 'Microsoft Yahei';
+	text-indent: 25px;
+	background: url(../images/ic_explain_gray.png) 2px -1px no-repeat;
+	margin: 30px 0 0 36px;
+}
+.form_input_con form{
+	width: 308px;
+	height: 221px;
+	margin: 20px auto 0;
+}
+.form_input_con form .form_group{
+	width: 308px;
+	height: 68px;
+}
+.form_group .input_txt,.form_group .input_pwd{
+	width: 306px;
+	height: 38px;
+	border: 1px solid #e0e0e0;
+	background: url(../images/icon_personal.png) 280px 10px no-repeat;
+	/*去掉选中时的虚框*/
+	outline: none;
+	text-indent: 10px;
+}
+.form_group .input_pwd{
+	/*如果是雪碧图,则是back....-position*/
+	background: url(../images/icon_personal.png) 280px 10px no-repeat;
+}
+.form_group .error{
+	font:12px/28px 'Microsoft Yahei';
+	color: #f80;
+}
+.form_group .input_check{
+	margin: 2px 10px 0 0;
+}
+.form_group .find_pass{
+	color: #4b4b4b;
+}
+.form_group .find_pass:hover{
+	color: #f80;
+}
+.input_submit{
+	width: 308px;
+	height: 40px;
+	background-color: #517fbb;
+	border: 0;
+	font: 24px/40px 'Microsoft Yahei';
+	color: #fff;
+	cursor: pointer;
+}
