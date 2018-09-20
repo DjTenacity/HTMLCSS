@@ -383,7 +383,7 @@ body{
 	height: 480px;
 	border-top: 1px solid #79a652;
 	border-bottom: 1px solid #79a652;
-	/*background-color: cyan;*/
+	background-color: #517fbb;
 }
 .login_form{
 	width: 953px;
@@ -401,11 +401,11 @@ body{
 	height: 300px;
 	text-align: center;
 	line-height: 36px;
-	margin: 87px 0 0 114px;
+	margin: 87px 0 0 54px;
 }
 .login_form .form_input_con{
 	width: 368px;
-	height: 378px
+	height: 378px;
 	background-color:#fff;
 	border: 1px solid #c6c6c5;
 	margin-top: 50px;
