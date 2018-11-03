@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+	<title> vue 指令与事件</title>
+	
+</head>
+<body>
+	<!-- 指令带有 前缀 v- , 指令的主要职责就是当其表达式的值改变时,相应的将某些行为应用到DOM上 -->
+	 <div id="app">  
+	 	 <p v-if='show'>指令带有前缀 v-</p>
+	 	 <!-- v-bind 动态更新HTML元素上的属性 , 比如id, class -->
+	 	 <a v-bind:href="url">链接</a>
+	 	 <img v-bind:src="imgUrl">
+	 	 <!-- v-on 绑定事件监听器 , 还可以监听原生的Dom事件,除了click外,还有dblclick,
+	 	 	keyup,mousemove-->
+	 	 	<!-- 表达式可以是一个方法名,这些方法都写在Vue实例的mothods属性内,并且是函数的形式 -->
+	 	 <button v-on:onclick='handleClose'>点击隐藏</button>
+	 	 <button v-on:onclick='show' show='false'>点击隐藏2</button>
+
+	 </div>
+	<script src="https://cdn.bootcss.com/vue/2.5.17/vue.min.js"></script>
+	<script type="text/javascript" >  
+
+ 	 	var app =new Vue({
+ 	 		el:'#app',
+ 	 		data:{
+ 	 			//为true时插入,否则移除
+ 	 			//数据驱动DOM 时候vue.js的核心理念,不到万不得已不要操作DOM
+ 	 			show:true,
+ 	 			url:'https://www.github.com',
+ 	 			imgUrl:'http://sc2.nos.netease.com/images/2018/8/21/212f5e6504a037928b48ceae41365e32',
+
+ 	 		},
+
+ 	 		methods:{
+ 	 			init:function(text){
+ 					console.log(text);
+ 	 			},
+ 	 			handleClose :function(){
+ 					console.log("text");
+
+ 	 				// this指向当前vue实例本身
+ 	 				this.close();
+ 	 			},
+ 	 			close:function(){
+ 					console.log("text2");
+ 	 				this.show = false;
+ 	 			}
+ 	 		},
+ 	 		mounted: function(){
+ 	 			this.init("在初始化时调用");
+ 	 		}
+ 	 	});
+ 	 	app.init('通过外部调用');
+
+	</script> 
+
+</body>
+</html>
+<!-- 魔法糖是指在不影响功能的情况下,添加某种方法实现同样的效果 ,v-bind和v-on都提供了语法糖.也可以说是缩写 -->
+<!-- 比如v-bind 可以直接写冒号 -->

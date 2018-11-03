@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CSS transform 翻页</title>
+	<style type="text/css">
+		div{
+		  	width: 200px;
+		  	height: 200px;
+		  	background-color: cyan;
+		  	margin: 30px auto;
+		  	float: left;
+			transition: all 500ms ease;
+		 }
+		div:nth-child(1){
+			transform-origin: center;
+		}
+		div:nth-child(2){
+			transform-origin: top left;
+		}
+		div:nth-child(3){
+			transform-origin: 50px 80px;
+		}
+		div:hover{
+		  	transform: rotate(-45deg);
+		 }
+
+	</style>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+</html>

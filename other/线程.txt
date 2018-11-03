@@ -1,0 +1,78 @@
+在java早期版本中有一个stop方法，其他线程可以调用它终止线程，但是这个方法现在已经被弃用了。 
+interrupt方法可以用来请求终止线程，当一个线程调用interrupt方法时，线程的中断状态将被置位。
+这是每个线程都具有的boolean标志，每个线程都应该不时的检查这个标志，来判断线程是否被中断。 
+
+
+最基本的开启线程的方式:
+实现Runnable接口 ; ; 继承Thread类重写run()方法 和 实现Callable接口，重写 call()方法
+
+但是上面的三种开启线程的方法在我们编写android应用时会有以下的弊端：
+
+1.但是我们都知道java线程机制是抢占性质的，调度机会中断线程，将上下文切换到另一个线程，
+从而为每个线程都提供时间片，使得每个线程都会分配合理的时间去驱动它的任务，
+java提供了改变线程优先级的方法，但是这会非常难以维护，试图去操纵线程优先级通常是错误的。
+
+2. 每次开启线程创建Thread，销毁线程性能会是很差的
+
+3 .而且这三种开启线程的方法缺乏更多功能，如定时执行、定期执行、线程中断。
+
+我们在写程序时如果是开启线程数量比较少时确实可以用这种方法，
+但是如果有很多开启线程的操作的话就不建议这么做了。
+
+2、Java 线程池
+Java通过Executors提供四种线程池，分别为：
+CachedThreadPool创建一个可缓存线程池，如果线程池长度超过处理需要，
+可灵活回收空闲线程，若无可回收，则新建线程。在线程空闲60秒后终止线程。
+
+FixedThreadPool 创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待。
+
+ScheduledThreadPool 创建一个定长线程池，支持定时及周期性任务执行。
+
+SingleThreadExecutor 创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，
+保证所有任务按照指定顺序(FIFO, LIFO, 优先级)执行。
+
+Executors类用于管理Thread对象，简化并发过程，我们可以看到FixedThreadPool的创建过程：
+
+public static ExecutorService newFixedThreadPool(int nThreads) { 
+
+return new ThreadPoolExecutor(nThreads, nThreads,   
+                                 0L, TimeUnit.MILLISECONDS,  
+                                  new LinkedBlockingQueue<Runnable>());  
+} 
+
+直接用ThreadPoolExecutor来自定义更灵活的线程池。
+
+public ThreadPoolExecutor(int corePoolSize,  
+                         int maximumPoolSize,  
+                        long keepAliveTime,  
+                        TimeUnit unit,  
+                         BlockingQueue<Runnable> workQueue,  
+                        ThreadFactory threadFactory,  
+                          RejectedExecutionHandler handler) 
+
+当池子大小小于corePoolSize就新建线程，并处理请求，当池子大小大于corePoolSize，把请求放入workQueue中，
+池子里的空闲线程就去从workQueue中取任务并处理，当workQueue放不下新入的任务时，新建线程入池，
+并处理请求，如果池子大小撑到了maximumPoolSize就用RejectedExecutionHandler来做拒绝处理。
+
+CachedThreadPool在程序执行时会创建与所需数量相同的线程，然后在它回收旧线程时停止创建新线程，
+因此是Executor的首选，只有当这种方式会引发问题，或者不符合业务需要时才采用另外的三种Executor提供的线程池
+
+SingleThreadExecutor 就是线程数量为1的FixedThreadPool，如果向SingleThreadExecutor提交多个任务，
+那么这些任务会排队，
+每个任务都会在下个任务开始之前就结束，所有任务都用一个线程，并且按照提交的顺序执行。
+
+ 线程池用于线程数量比较多时的场景，如果只开启2，3个线程就用线程池，显然会极度的浪费资源
+
+另外，当池子的线程数大于corePoolSize的时候，多余的线程会等待keepAliveTime长的时间，如果无请求可处理就自行销毁
+
+****************************************************
+利用Activity.runOnUiThread(Runnable)把更新ui的代码创建在Runnable中，然后在需要更新ui时，
+把这个Runnable对象传给Activity.runOnUiThread(Runnable).Runnable对像就能在ui程序中被调用。
+public final void runOnUiThread(Runnable action) {
+
+    if (Thread.currentThread() != mUiThread) {
+        mHandler.post(action);
+    } else {
+        action.run();
+    }
+}

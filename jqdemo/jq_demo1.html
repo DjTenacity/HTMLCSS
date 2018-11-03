@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+	<title>创建对象的方法 </title>
+	<script type="text/javascript"> 
+	// 1、单体
+
+	var Tom = {
+	    name : 'tom',
+	    age : 18,
+	    showname : function(){
+	        alert('我的名字叫'+this.name);    
+	    },
+	    showage : function(){
+	        alert('我今年'+this.age+'岁');    
+	    }
+	}
+	// 2、工厂模式
+
+
+	function Person(name,age,job){
+	    var o = new Object();
+	    o.name = name;
+	    o.age = age;
+	    o.job = job;
+	    o.showname = function(){
+	        alert('我的名字叫'+this.name);    
+	    };
+	    o.showage = function(){
+	        alert('我今年'+this.age+'岁');    
+	    };
+	    o.showjob = function(){
+	        alert('我的工作是'+this.job);    
+	    };
+	    return o;
+	}
+	var tom = Person('tom',18,'程序员');
+	tom.showname();
+
+	//2、构造函数
+
+	    function Person(name,age,job){            
+	        this.name = name;
+	        this.age = age;
+	        this.job = job;
+	        this.showname = function(){
+	            alert('我的名字叫'+this.name);    
+	        };
+	        this.showage = function(){
+	            alert('我今年'+this.age+'岁');    
+	        };
+	        this.showjob = function(){
+	            alert('我的工作是'+this.job);    
+	        };
+	    }
+	    var tom = new Person('tom',18,'程序员');
+	    var jack = new Person('jack',19,'销售');
+	    alert(tom.showjob==jack.showjob);
+
+
+	//3、原型模式
+
+	    function Person(name,age,job){        
+	        this.name = name;
+	        this.age = age;
+	        this.job = job;
+	    }
+	    Person.prototype.showname = function(){
+	        alert('我的名字叫'+this.name);    
+	    };
+	    Person.prototype.showage = function(){
+	        alert('我今年'+this.age+'岁');    
+	    };
+	    Person.prototype.showjob = function(){
+	        alert('我的工作是'+this.job);    
+	    };
+	    var tom = new Person('tom',18,'程序员');
+	    var jack = new Person('jack',19,'销售');
+	    alert(tom.showjob==jack.showjob);
+
+
+	//4、继承
+	        function fclass(name,age){
+	            this.name = name;
+	            this.age = age;
+	        }
+	        fclass.prototype.showname = function(){
+	            alert(this.name);
+	        }
+	        fclass.prototype.showage = function(){
+	            alert(this.age);
+	        }
+	        function sclass(name,age,job)
+	        {	//属性继承通过call或者apply
+	            fclass.call(this,name,age);
+	            this.job = job;
+	        }
+	        //方法继承: 将父类的一个实例赋值给子类的原型属性
+	        sclass.prototype = new fclass();
+	        sclass.prototype.showjob = function(){
+	            alert(this.job);
+	        }
+	        var tom = new sclass('tom',19,'全栈工程师');
+	        tom.showname();
+	        tom.showage();
+	        tom.showjob();
+
+	        //call 可以改变当前的this  apply
+	        function aa(a,b){
+	        	alert('我的this是'+this+ ',我的a是'+a+',我的b是' +b);
+	        }
+	        aa.call('aaa',2,3);
+	        aa.apply('aaaa',[2,3]);
+
+	</script>
+</head>
+<body>   
+	 
+</body>
+</html>

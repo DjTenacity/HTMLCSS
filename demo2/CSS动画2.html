@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CSS 曲线</title>
+	<style type="text/css">
+		  .box{
+		  	width: 200px;
+		  	height: 200px;
+		  	border: 2px solid #222;
+		  	background-color: cyan;
+		  	margin: 10px auto;  
+			box-shadow: 0px 0px 5px 3px pink; 
+			/*transition:width 300ms ease,height 300ms ease 300ms,background-color 300ms ease 600ms;   */
+			transition: all 1500ms ease;
+			text-align:center;
+		  	line-height: 200px;
+		  }
+		.box:hover{
+		  	width: 300px;
+		  	height: 300px;
+		  	line-height: 300px;
+		  }
+		  /*----------------------------曲线----------------------*/
+		   div{
+		   		width: 230px;
+		   		height: 50px;
+		   		background-color: cyan;
+		   		margin-bottom: 20px;
+				text-align:center;
+		   }
+
+		   div:nth-child(1){
+			transition: all 500ms ease;
+		   }
+		   div:nth-child(2){
+			transition: all 500ms linear;
+		   }
+			div:nth-child(3){
+			transition: all 500ms ease-in;
+		   }
+		   div:nth-child(4){
+			transition: all 500ms ease-in-out;
+		   }
+			div:nth-child(5){
+			transition: all 500ms cubic-bezier(0.845, -0.375, 0.215, 1.335);
+		   }
+		 
+		   div:hover{
+		  		width: 1000px;
+		  	}
+
+	</style>
+</head>
+<body>
+	 <div class="box">
+	 	皇帝的新衣
+	 </div>
+
+	 <div>ease 开始和结束慢速</div>
+	 <div>linear 匀速</div>
+	 <div>ease-in 开始是慢速</div>
+	 <div>ease-in-out 结束时慢速</div>
+	 <div>cubic-bezier 曲线设置 </div>
+	 <a href="https://matthewlein.com/ceaser/">曲线设置网站</a>
+	 <div>transition-delay动画的延迟</div>
+</body>
+</html>

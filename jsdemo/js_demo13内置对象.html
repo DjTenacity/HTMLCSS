@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+	<title>封闭函数</title>
+	<script type="text/javascript"> 
+
+		 /**内置对象
+1、document
+
+document.referrer  //获取上一个跳转页面的地址(需要服务器环境)
+2、location
+
+window.location.href  //获取或者重定url地址
+window.location.search //获取地址参数部分
+window.location.hash //获取页面锚点或者叫哈希值
+3、Math
+
+Math.random 获取0-1的随机数
+Math.floor 向下取整
+Math.ceil 向上取整*/
+
+	//1 存储跳转的源页面
+		var backurl = document.referrer;
+		// 处理中间的登录的逻辑 如果成功   跳转
+		//window.location.href = backurl;
+
+	//2获取地址栏参数
+		var Dat = window.location.search;
+		var hash = window.location.hash;
+		var oSpan = document.getElementById('span01')
+		var arr = Dat.split('=');
+		//alert(arr);
+		var name = arr[1];
+		oSpan.innerHTML = name;
+		alert(hash);
+
+	//3 math 内置对象
+		var a = 10;
+		var b = 20;
+		var arr = [];
+		for(var i=0;i<20;i++){
+			var num = Math.floor(Math.random()*(b-a+1)+a);
+			arr.push(num);
+		}
+		alert(arr);
+
+	</script>
+</head>
+<body>   
+		<div>欢迎<span id="span01"></span>访问我的主页！</div>
+</body>
+</html>

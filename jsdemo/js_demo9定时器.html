@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+	<title>计算器</title>
+	<style type="text/css" media="screen">
+	.box{
+		width: 100px;
+		height: 100px;
+		background-color: #aaa;
+
+
+		position: fixed;
+		left: 20px;
+		top: 20px;
+	}
+		
+	</style>
+	<script type="text/javascript"> 
+ 		  //  setTimeout  只执行一次的定时器  
+    // clearTimeout 关闭只执行一次的定时器
+    // setInterval  反复执行的定时器
+    // clearInterval 关闭反复执行的定时器
+ 		var tiemer= setTimeout(function(){
+ 			alert('hello');
+ 		},3000);
+
+ 		clearTimeout(timer);
+// 反复执行
+ 		window.onload = function(){
+ 			var oBox=document.getElementById('div1');
+ 			var left=20;
+ 			var timerIn=setInterval(function(){
+ 				left+=2;
+ 				oBox.style.left = left+'px';
+ 			},300);
+
+ 			if(left>1000){
+ 				clearInterval(timerIn);
+ 			}
+ 		}
+ 		// 反复执行
+ 		// var tiemer2= setInterval(function(){
+ 		// 	alert('h ');
+ 		// },3000);
+
+ 		// clearInterval(timer2);
+	</script>
+</head>
+<body>   
+	 <div class="box" id="div1">
+		
+	</div>
+</body>
+</html>

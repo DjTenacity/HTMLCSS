@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+	<title> jquery简选择器 </title>
+
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" > 
+	 
+		$(function(){
+			var $div=$('#div1');
+			console.log($div.html()+'jQuery是目前使用最广泛的javascript函数库'); 
+
+
+			//next() 同级的下一个元素 , nextAll 同级的下面的所有的元素 
+			//prev() 同级的上一个元素 , prevAll 同级的上面的所有的元素 
+			$('#div1').next('p').css({
+				color: 'pink'
+			});
+
+			$('#div1').css({
+				color: 'pink',
+				// margin-bottom: '10px'
+			});
+
+			$('.box').css({
+				fontSize: '30px'
+			});
+
+			$('.list li').css({	
+				background: 'green',
+				color: 'pink',
+				fontSize: '30px'
+			});
+			//选择div的父元素
+			$('#span01').parent().css({
+				width: '100px',
+				height: '100px'
+			});
+			// $('div').closest('form'); //选择离div最近的那个form父元素
+			//$('#span01').closest()选择距离最近的元素,可以是父级,可以是子集
+			$('#span01').closest().css({
+				width: '100px',
+				height: '100px',
+				fontSize: '30px'
+
+			});
+			//和 $('.list li') 的区别是      不能回到父级
+			//原始的选择集不一样,下面的可以回到父级
+			$('.list li').children().css({
+				background: 'blue'
+			}).end().css({
+				background: 'white'
+			});
+
+			$('.list li:eq(2)').children().css({
+				background: 'yellow'
+			}).end().css({
+				background: 'black'
+			});
+
+
+			//读取样式
+			console.log( $('.box').css('fontSize')); 
+			//设置 样式 写入
+			$('.box').css('fontSize','16px');
+		})
+
+	</script>
+
+	<style type="text/css">
+			#div1{
+				color: red;
+			}
+			.box{
+				color:green;
+			}
+			.list li{
+				background-color: gold;
+				margin-bottom: 10px;
+			}
+			.big{
+				font-size: 30px;
+			}
+	</style>
+
+</head>
+<body>   
+	<div id="div1"> 一个div1 元素 </div>
+	<p>哇哈哈哈哈</p>
+	<div class='box' id="div2"> 一个div1 元素 </div>
+	<ul class="list">
+		<li> $('div').children(); //选择div的所有子元素</li>
+		<li> $('div').has('p'); // 选择包含p元素的div元素</li>
+		<li> $('div').eq(5); //选择第6个div元素</li>
+		<li> $('div').siblings(); //选择div的同级元素</li>
+		<li> $('div').find('.myClass'); //选择div内的class等于myClass的元素</li>
+
+		<li> $("#div1").toggleClass("anotherClass") //重复切换anotherClass样式</li>
+		<li> $("#div1").addClass("divClass2") //为id为div1的对象追加样式divClass2</li>
+		<li>$("#div1").removeClass("divClass")  //移除id为div1的对象的class名为divClass的样式</li>
+		<li>$("#div1").removeClass("divClass divClass2") //移除多个样式</li>
+
+
+
+	</ul>
+
+	<div>
+		<p> $('div').first(); //选择第1个div元素</p>
+		<span id="span01"> </span>
+		<p> $(document) //选择整个文档对象
+			$('li') //选择所有的li元素</p>
+
+		<p>$('#myId') //选择id为myId的网页元素</p>
+		<p>$('.myClass') // 选择class为myClass的元素</p>
+		<p>$('input[name=first]') // 选择name属性等于first的input元素</p>
+		<p>$('#ul1 li span') //选择id为为ul1元素下的所有li下的span元素</p>
+
+	</div>
+
+</body>
+</html>

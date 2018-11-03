@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CSS 图片翻面</title>
+	<style type="text/css">
+		  	.con{
+		  		width: 300px;
+		  		height: 272px;
+		  		margin: 50px auto 0;
+		  		position: relative;
+		  		transition: all 500ms ease;
+		  		transform-style: preserve-3d;
+		  		transform:perspective(800px)  rotateY(0deg);
+		  	}
+		  	
+		  	.pic, .info{
+				width: 300px;
+		  		height: 272px;
+		  		position: absolute;
+		  		left:  0;
+		  		top:  0px; 
+		  		transition: all 1s ease;
+		  		backface-visibility: hidden;
+		  		transform:perspective(800px)  rotateY(0deg);
+		  	}
+		  	.info{
+		  		text-align: center;
+		  		background-color: cyan;
+		  		line-height: 272px;
+		  		transform:translateZ(2px)  rotateY(180deg);
+		  	}
+		  	.con:hover .pic{
+		  		transform:perspective(800px)  rotateY(180deg);
+		  	}
+		  	.con:hover .info{
+		  		transform:perspective(800px)  rotateY(0deg);
+		  	}
+	</style>
+</head>
+<body>
+	 <div class="box">
+	 	皇帝的新衣
+	 </div>
+ 
+	 <div class="box2">
+	 	<div class="con">
+	 		<div class="pic"> <img src="../images/aaa.png"> </div>
+	 		<div class="info">图片文字说明 </div>
+	 	</div>
+	 	
+	 </div>
+</body>
+</html>

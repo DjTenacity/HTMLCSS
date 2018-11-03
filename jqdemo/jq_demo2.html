@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+	<title>原生新增选择器 </title>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+
+	<script type="text/javascript" > 
+
+		window.onload = function(){
+			var oDiv= document.querySelector('#div1');
+			var aLi= document.querySelectorAll('.list li');
+
+			console.log(oDiv); 
+			console.log(aLi.length); 
+
+		}
+
+		// jquery是一个函数库，一个js文件，页面用script标签引入这个js文件就可以使用。
+		//<script type="text/javascript" src="js/jquery-1.12.2.js"/> 
+	</script>
+</head>
+<body>   
+	<div id="div1"> 一个div1 元素 </div>
+	<ul class="list">
+		<li>jQuery是目前使用最广泛的javascript函数库</li>
+		<li>34</li>
+		<li>4</li> 
+	</ul>
+	 
+</body>
+</html>

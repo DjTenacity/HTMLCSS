@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+	<title>js Demo</title>
+	<link rel="stylesheet" href="1.css" id="link1">
+	 <style type="text/css">
+	 	.box1{
+	 		width: 100px;
+	 		height: 100px;
+	 		background-color: cyan;
+	 	}
+		.box2{
+	 		width: 100px;
+	 		height: 100px;
+	 		background-color: cyan;
+	 	}
+	</style>
+
+	<script type="text/javascript"> 
+		//整个文档加载完成之后执行的匿名函数
+		window.onload = function(){
+			//改变一个元素的class, 用className
+			var oDiv1=document.getElementById('div1');
+
+			var attr= 'background';
+			oDiv1.className='box2'; 
+			//必须用引号,直接red的话,会认为是一个变量
+			//通过[] 可以写变量
+			oDiv1.style[attr]='red';
+			oDiv1['style'][attr]='red';
+
+			//通过innerHTML可以读写元素包括的内容
+			var oDiv2=document.getElementById('div2');
+			// oDiv2.innerHTML='第二个div元素';
+			oDiv2.innerHTML ="<a href='http://www.baidu.com'>百度</a>"
+
+			var oBtn01=document.getElementById('btn01');
+			var oBtn02=document.getElementById('btn02');
+			// 不能写括号 , 写括号的话会直接调用
+			oBtn01.onclick=skin01;
+			oBtn02.onclick=skin02;
+		}
+
+
+		//函数
+		function aa(){
+			alert("哇哈哈哈哈");
+		}
+		//aa(); //直接调用
+
+		//改变css链接来实现换肤
+		function skin01(){
+			var oLink=document.getElementById('link1');
+			oLink.href='1.css';
+		}
+		function skin02(){
+			var oLink=document.getElementById('link1');
+			oLink.href='2.css';
+		}
+	</script> 
+</head>
+<body> 
+	<div id="div1" class="box1"></div>
+
+	<div  id="div2" class="box2"> </div> 
+
+	<input type="button" name="" value="弹窗" onclick="aa()">
+
+	<!-- 行间调用 -->
+	<!-- <input type="button" name="" value="皮肤01" onclick="skin01()" id="btn01"> -->
+	<!-- <input type="button" name="" value="皮肤02" onclick="skin02()" id="btn02"> -->
+
+	<input type="button" name="" value="皮肤01" id="btn01">
+
+	<input type="button" name="" value="皮肤01" id="btn01">
+
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+	<title>封闭函数</title>
+	<style type="text/css">
+		.btns{
+			width: 500px;
+			height: 200px;
+		}
+		.btns input{
+			width: 100px;
+			height: 50px;
+			background-color: gold;
+			color: #66f;
+			border: 0px;
+		}
+		.btns input.cur{
+			background-color: gold;
+		}
+		.contents div{
+			width: 200px;
+			height: 500px;
+			display: none;
+			background-color: gold;
+		}
+		.contents div.active{
+			display: block;
+
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript"> 
+		$(function(){
+			$('#btns input').onclick(function(){
+				 $(this).addClass('cur')
+
+			});
+		})
+
+
+		 window.onload= function(){
+		 	var aBtn = document.getElementById('btns').getElementsByTagName('input');
+		 	var aCon = document.getElementById('contents').getElementsByTagName('div');
+console.log(aBtn.length); 
+				console.log(aCon.length); 
+		 		for(var i=0;i<aBtn.length;i++){
+
+		 			(function(i){
+	 					aBtn[i].onclick = function(){
+		 					for(var j=0;j<aBtn.length;j++){
+		 						aBtn[j].className=' ';
+		 						aCon[j].className=' ';
+		 					}
+		 					this.className='cur';
+		 					aCon[i].className='active';
+		 				}
+		 			})(i)
+
+		 		}
+		 	} ;
+	</script>
+</head>
+<body>   
+	<div class="btns" id="btns">
+		<input type="button" name="" value="tab01" class="cur">
+		<input type="button" name="" value="tab02">
+		<input type="button" name="" value="tab03">
+	</div>
+	<div class="contents" id="contents">
+		<div class='active'>tab文字内容一</div>
+		<div>tab文字内容二</div>
+		<div>tab文字内容三</div>
+	</div>
+</body>
+</html>

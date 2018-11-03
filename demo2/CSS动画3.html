@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CSS 曲线</title>
+	<style type="text/css">
+		  	.box2{
+		  		width: 200px;
+		  		height: 200px;
+		  		border: 1px solid #222;
+		  		margin: 10px auto;
+		  		position: relative;
+		  		overflow: hidden; 
+		  	}
+		  	.box2 img{
+		  		width: 200px;
+		  		height: 200px;
+		  	}
+		  	.box2 .pic_info{
+				width: 200px;
+		  		height: 200px;
+		  		background-color: rgba(0,0,0,0.5);
+		  		color: #fff;
+		  		position: absolute;
+		  		left:  0;
+		  		top: 200px;
+				transition: all 500ms ease-in-out;
+				
+				/*[偏移,不会影响文档流]*/
+				/*transform: translate(50px,50px);*/
+		  	}
+		  	.box2 .pic_info p{
+		  		margin: 5px;
+		  	}
+		  	.box2:hover .pic_info{
+				top: 150px;
+		  	}
+	</style>
+</head>
+<body>
+	 <div class="box">
+	 	皇帝的新衣
+	 </div>
+ 
+	 <div class="box2">
+	 	<img src="../images/aaa.png">
+	 	<div class="pic_info">
+	 		<p>图片说明,1、translate(x,y) 设置盒子位移
+				2、scale(x,y) 设置盒子缩放  </p>
+	 	</div>
+	 </div>
+</body>
+</html>

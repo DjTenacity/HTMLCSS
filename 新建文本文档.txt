@@ -1,0 +1,40 @@
+view的事件分发啊，ontouch和ontouchevent的区别啊什么的
+
+glide的三级缓存实现原理什么的
+
+messageque 数据结构是啥啊
+
+handler的postdelay是怎么实现的  handler 延时时如何实现的
+
+
+reteoift  okhttp  组件化 源码
+
+约束布局怎么写啊怎么实现啊，性能优劣啊
+
+冷启动 和 热启动的区别
+
+Activity的启动:
+里面有handler AMS Binder
+可以结合插件化理解 看看插件化是怎么hook的 这个就涉及到activity的启动的流程的把控(滴滴和360的
+)
+现在有本插件化的书,包建强的  Activity还可以结合window来看
+还有资源的加载
+事件的传递机制
+
+布局文件的加载
+
+还有就是常用开源框架的源码
+greendao
+EventBus
+okhttp
+retrofit
+glide
+buffternife
+
+
+gradle的流程源码
+anr的源码
+还有热修复的源码
+
+
+

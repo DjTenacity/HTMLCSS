@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+	<title>js Demo</title>
+	<!-- 运行时,从上往下读 -->
+	<<style type="text/css" media="screen" src="cs.css" id="linkcss">
+		
+	</style>
+
+	<!-- 第二种嵌入js的方式:嵌入式 -->
+	<script type="text/javascript"> 
+		alert ('hahah , again');
+		//整个文档加载完成之后执行的匿名函数
+		window.onload =function(){
+
+			var div1=document.getElementById('div1');
+			div1.title="弹窗 div元素  弹窗"; 
+			div1.style.color='cyan';
+			// fontSize----> font-size 去掉横杠,首字母大写
+			div1.style.fontSize='10sp';
+
+
+			var oA=document.getElementById('link1');
+			oA.href="http://www.baidu.com"; 
+			oA.title="百度一下你就知道"; 
+			alert(oA.id);
+		}
+	</script>
+	
+	<!-- 第三种嵌入js的方式:外链式  -->
+	<script type="text/javascript" src="hello.js" ></script>
+</head>
+<body> 
+
+	<!-- 第一种js嵌套方式 : 行间事件 不推荐使用-->
+	<input type="button" name="" value="弹窗" onclick="alert ('hahah')">
+
+	 <div id="div1" class="div1" title="娃娃,哈哈哈哈 div元素" style="color:red">
+		哈哈哈
+	</div>
+
+	<a href="#" id="link1">哈哈百度一下你就知道</a>
+
+		<!-- <script type="text/javascript"> 
+			document.getElementById('div1').title="弹窗 div元素  弹窗"; 
+		</script> -->
+</body>
+</html>

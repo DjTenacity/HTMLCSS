@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CSS圆角阴影透明度</title>
+	<style type="text/css">
+		body{
+			background-color: gray;
+		}
+
+		  .box{
+		  	width: 200px;
+		  	height: 200px;
+		  	border: 2px solid #222;
+		  	background-color: cyan;
+		  	margin: 10px auto;
+		  	/*---------------------圆角-------------------*/
+		  /*border-top-left-radius: 100px 50px;
+		  	border-top-left-radius: 100px;
+		  	border-top-right-radius: 100px;*/
+		  	
+		  	/*border-radius: 40px;*/
+		  	/*圆*/
+		  	/*border-radius: 50%;*/
+		  
+			
+			/*----------------------阴影-----------------------*/
+			/*水平偏移 垂直偏移 羽化大小 扩展大小 颜色 是否内阴影*/
+			box-shadow: 0px 0px 5px 3px pink;
+			/*box-shadow: 10px 10px 5px 10px green inset;*/
+		  }
+
+		  .box2{
+		  	width: 200px;
+		  	height: 200px;
+		  	border: 2px solid #222;
+		  	background:url(../images/aaa.png);
+		  	margin: 10px auto;
+		  	/*透明度方法1*/
+		  	opacity: 0.4;
+		  	/*（兼容IE）;*/
+		  	filter:alpha(opacity=10);
+		  	text-align:center;
+		  	line-height: 200px;
+		  }
+		  .box3{
+		  	width: 200px;
+		  	height: 200px;
+		  	border: 2px solid rgba(0,0,0,0.4);
+		  	margin: 10px auto;
+		  	text-align:center;
+		  	line-height: 200px;
+		  	/*透明度方法2*/
+		  	/*rgba(0,0,0,0.1) 前三个数值表示颜色，第四个数值表示颜色的透明度*/
+		  	background-color: rgba(98,198,198,0.4);
+		  }
+		  .box3:hover{
+		  	width: 300px;
+		  	height: 300px;
+		  	line-height: 300px;
+		  }
+	</style>
+</head>
+<body>
+	 <div class="box">
+
+	 </div>
+	 <br>
+	 <div class="box2">
+	 	皇帝的新衣
+	 </div>
+	 <div class="box3">
+	 	皇帝的新衣
+	 </div>
+</body>
+</html>

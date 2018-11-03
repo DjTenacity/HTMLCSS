@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+	<title>js Demo</title>
+	<script type="text/javascript"> 
+
+		window.onload =function(){ 
+			var oList = document.getElementById('ul01');
+			//获取选中的ul 中的li
+			var aLi1 = oList.getElementByTagName("li");
+
+			for (var i = aLi1.length - 1; i >= 0; i--) {
+				aLi1[i].style.backgroundColor='cyan';
+			}
+
+			//aLi 是一个选择集, 仅仅是类似于数组，并没有数组通用的一些方法 , 直接选中两个ul中的所有li
+			var aLi= docment.getElementByTagName("li");
+			aLi[6].style.backgroundColor='gold';
+
+/**
+
+Javascript组成
+1、ECMAscript javascript的语法（变量、函数、循环语句等语法）
+2、DOM 文档对象模型 操作html和css的方法
+3、BOM 浏览器对象模型 操作浏览器的一些方法
+
+**/
+
+			//数组去重
+			var aList = [1,2,3,4,4,3,2,1,2,3,4,5,6,5,5,3,3,4,2,1];
+
+			var aList2 = [];
+
+			for(var i=0;i<aList.length;i++)
+			{
+			    if(aList.indexOf(aList[i])==i)
+			    {
+			        aList2.push(aList[i]);
+			    }
+			}
+
+			alert(aList2);
+		}
+
+			/**
+字符串处理方法
+1、字符串合并操作：“ + ”
+2、parseInt() 将数字字符串转化为整数
+3、parseFloat() 将数字字符串转化为小数
+4、split() 把一个字符串分隔成字符串组成的数组
+5、charAt() 获取字符串中的某一个字符
+6、indexOf() 查找字符串是否含有某字符  如果没有就是-1
+7、substring() 截取字符串 用法： substring(start,end)（不包括end）
+8、toUpperCase() 字符串转大写
+9、toLowerCase() 字符串转小写
+
+字符串反转
+
+var str = 'asdfj12jlsdkf098';
+var str2 = str.split('').reverse().join('');
+
+alert(str2);
+			**/
+	</script>
+</head>
+<body>  
+
+	<ul id="ul01">
+		<li>q</li>
+		<li>w</li>
+		<li>w</li>
+		<li>e</li>
+		<li>r</li>
+	</ul>
+
+	<ul>
+		<li>wq</li>
+		<li>ww</li>
+		<li>www</li>
+		<li>wwe</li>
+		<li>
+			调试程序的方法
+1、alert
+
+2、console.log
+
+3、document.title</li>
+	</ul>
+
+
+
+</body>
+</html>

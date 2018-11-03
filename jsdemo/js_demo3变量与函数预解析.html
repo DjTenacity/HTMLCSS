@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+	<title>js Demo</title>
+	 <style type="text/css">
+	   
+	 /*
+	 	JavaScript解析过程分为两个阶段: 编译 然后执行
+		在编译时会将function定义的函数提前,并将var定义的变量声明提前,将它赋值为undefined
+		也就是会先预解析一边,把变量和函数都提前赋值为undefined
+
+		也就是在赋值之前调用会报变量undefined
+		而不是未声明
+	 */
+	</style>
+	<script type="text/javascript">
+			window.onload = function(){
+				//改变一个元素的class, 用className
+				var oDiv1=document.getElementById('div1');
+				//两种方案
+				oDiv1.onclick=aa;
+				function aa(){
+
+				}
+				//没有名称的函数: 有名称也没有意义
+				oDiv1.onclick = function (){
+
+				}
+				//函数传参
+				changestyle('color','cyan');
+
+				function changestyle(styl,val){
+					oDiv1.style[styl] =val;
+				}
+
+				var oInput01=document.getElementById('input01');
+				var oInput02=document.getElementById('input02');
+				var oBtn=document.getElementById('btn');
+
+				/** 写入值
+				oInput01.value=10;
+				oInput02.value=11;
+				**/
+
+				//return 结束函数运行
+				oBtn.onclick=function(){
+					var val01 =oInput01.value;
+					var val02 =oInput02.value;
+					alert( val01 - val02 );
+
+					var rs =add(val01,val02);
+					alert(rs);
+				}
+
+				function add(a,b){
+				// 拼接字符串 var c= a+b;
+				// 正常加法
+					var c= parseInt(a)+parseInt(b);
+					return c;
+				}
+				//正常减法
+				function delect(a,b){
+					var c= a-b;
+					return c;
+				}
+			}
+	</script>
+	
+
+</head>
+<body> 
+	<div id="div1" class="box1"> </div>
+
+
+	<input type="text" name="" value="" id="input01">
+	<input type="text" name="" value="" id="input02">
+	<input type="button" name="" value="相加" id="btn">
+
+</body>
+</html>

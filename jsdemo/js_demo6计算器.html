@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+	<title>计算器</title>
+	<script type="text/javascript"> 
+ 		
+		window.onload =function(){ 
+			var input01=document.getElementById('input01');
+			var input02=document.getElementById('input02');
+			var oFuhao=document.getElementById('fuhao');
+			var input02=document.getElementById('input02');
+			var oBtn=document.getElementById('btn');
+		
+			oBtn.onclick=function(){
+				var num01=input01.value;
+				var num02=input02.value;
+				var fuhao=oFuhao.value;
+				if(num01==""||num02==""){
+					alert("洗洗睡吧,别闹");
+					return;
+				}
+				if( isNaN(num01)||isNaN(num02)){
+					alert("洗洗睡吧,别闹");
+					return;
+				}
+
+				switch(fuhao){
+					case '0':
+						alert((parseFloat(num01) * 100+parseFloat(num02) * 100)/100);
+						break;
+					case '1':
+						alert(((parseFloat(num01)* 100 -parseFloat(num02)* 100))/100);
+
+						break;
+					case '2':
+						alert(((parseFloat(num01)* 100)*(parseFloat(num02)* 100))/10000);
+						break;
+					case '3':
+						alert(parseFloat(num01)* 100/(parseFloat(num02)* 100));
+						break;
+				}
+
+			}	
+		}
+	</script>
+</head>
+<body>  
+	<h1>计算机</h1>
+	<input type="text" name="" id="input01">
+
+	<select name="" id="fuhao">
+		<option value="0">+</option>
+		<option value="1">-</option>
+		<option value="2">*</option>
+		<option value="3">/</option>
+	</select>
+
+	<input type="text" name="" id="input02">
+	<input type="button" name="" value="计算" id="btn">
+</body>
+</html>

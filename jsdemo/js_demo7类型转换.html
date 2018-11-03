@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+	<title>计算器</title>
+	<script type="text/javascript"> 
+ 		 
+
+		// 1、直接转换 parseInt() 与 parseFloat()
+
+		console.log('12'+7); //弹出127
+		console.log( parseInt('12') + 7 );  //弹出19 
+		console.log( parseInt(5.6));  // 弹出5
+		console.log('5.6'+2.3);  // 弹出5.62.3
+		console.log(parseFloat('5.6')+2.3);  // 弹出7.8999999999999995
+		console.log(0.1+0.2); //弹出 0.3000000000000004
+		console.log((0.1*100+0.2*100)/100); //弹出0.3
+		console.log((parseFloat('5.6')*100+2.3*100)/100); //弹出7.9
+		// 2、隐式转换 “==” 和 “-”
+
+		if('3'==3)
+		{
+		    console.log('相等');
+		}
+
+		// 弹出'相等'
+		console.log('10'-3);  // 弹出7
+		// 3、NaN 和 isNaN
+
+		console.log( parseInt('123abc') );  // 弹出123
+		console.log( parseInt('abc123') );  // 弹出NaN
+
+			
+		var a = '123abc';
+		var b = '5.3asd';
+		var c = 'abc123';
+		var d = 'asd5.3';
+
+		var i = 12;
+		var j = '12';
+
+		var e = parseInt(a);
+		var f = parseFloat(b);
+		var g = parseInt(c);
+		var h = parseFloat(d);
+
+
+		//alert(e);  // 弹出123
+
+		//alert(f); // 弹出5.3
+
+
+
+		console.log(g);  // 弹出NaN  not a number
+		console.log(g==NaN);  //弹出false
+
+		console.log(NaN==NaN);  //弹出false
+
+		// parseInt 和 parseFloat 在判断 NaN 有问题！
+
+		// alert(isNaN(a));  // a 不是一个 不是一个数字
+
+		console.log(isNaN(i));  // 弹出false
+		console.log(isNaN(j));  // 弹出false
+	</script>
+</head>
+<body>   
+	<<div id="div1">
+		
+	</div>
+</body>
+</html>

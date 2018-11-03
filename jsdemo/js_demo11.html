@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+	<title>封闭函数</title>
+	<script type="text/javascript"> 
+
+		//函数调用方式
+		// function aa(){
+
+		// }
+		var aa=function(){
+			console.log('12'+7); //弹出127
+		}
+		aa();
+
+
+		//封闭函数
+		//封闭函数是javascript中匿名函数的另外一种写法，创建一个一开始就执行而不用命名的函数。
+
+		(function(){
+    		var oDiv = document.getElementById('div1');
+    		oDiv.style.color = 'red';
+		})();
+		//还可以在函数定义前加上“~”,";"和“!”等符号来定义匿名函数
+		!function(){
+    		var oDiv = document.getElementById('div1');
+   			oDiv.style.color = 'red';
+		}()
+
+		// *********方式一************
+		function aaa(m){
+			var b=3;
+			function bbb(){
+				console.log(b); 
+				console.log(m); 
+			}
+			return bbb;
+		}
+		var cc=aaa(2);
+
+		// *********方式二********
+		var cc = (function(m){
+			var b=3;
+			function bbb(){
+				console.log(b);  
+				b++;
+				console.log(m); 
+			}
+			return bbb;
+		})(2);
+		cc();
+	</script>
+</head>
+<body>   
+	<<div id="div1">
+		
+	</div>
+</body>
+</html>

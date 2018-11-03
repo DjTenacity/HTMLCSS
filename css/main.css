@@ -194,11 +194,9 @@ body{
 
 
 /*<!-- 幻灯片 -->*/
-.slide_con{
-	width: 760px;
-	height: 270px;
-	position: relative;
-}
+.slide{width:760px;height:270px;position:relative;overflow:hidden;}
+.slide .slide_pics{position:relative;left:0;top:0;width:760px;height:270px;}
+.slide .slide_pics li{width:760px;height:270px;position:absolute;left:0;top:0}
 /*如果你的背景图片小于你的ｃｏｎｔａｉｎｅｒ ,不设置ｎｏ－ｒｅｐｅａｔ,直到填满 ,整个ｃｏｎｔａｉｎｅｒ ,ｎｏ－ｒｅｐｅａｔ只是说只渲染一次，不要重复渲染*/
 .prev,.next{
 	width: 30px;
@@ -383,7 +381,7 @@ body{
 	height: 480px;
 	border-top: 1px solid #79a652;
 	border-bottom: 1px solid #79a652;
-	/*background-color: cyan;*/
+	background-color: #517fbb;
 }
 .login_form{
 	width: 953px;
@@ -401,11 +399,11 @@ body{
 	height: 300px;
 	text-align: center;
 	line-height: 36px;
-	margin: 87px 0 0 114px;
+	margin: 87px 0 0 54px;
 }
 .login_form .form_input_con{
 	width: 368px;
-	height: 378px
+	height: 378px;
 	background-color:#fff;
 	border: 1px solid #c6c6c5;
 	margin-top: 50px;

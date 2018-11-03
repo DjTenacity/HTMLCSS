@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CSS 曲线</title>
+	<style type="text/css">
+			.con{
+				height: 300px;
+				border: 1px solid #ddd;
+			}
+		  .box{
+		  	width: 200px;
+		  	height: 200px;
+		  	background-color: cyan;
+		  	margin: 50px auto;  
+			text-align:center;
+			transition: all 500ms ease;
+			/*3d或平面*/
+		  	transform-style: preserve-3d;
+		  	transform:perspective(800px)  rotate(0deg);
+
+		  	backface-visibility: hidden;
+
+			/*位移*/
+			/*transform: translate(100px,100px); */
+			/*旋转*/
+			/*transform: rotate(30deg);*/
+		  }
+		  body:hover .box{
+			/*旋转*/
+		  	transform:perspective(800px)  rotateY(90deg);
+		  }
+		 .box2{
+		  	width: 200px;
+		  	height: 200px;
+		  	background-color: cyan;
+		  	margin: 30px auto;  
+			text-align:center;
+			transition: all 500ms ease;
+
+			/*缩放*/
+			/*transform: scale(0.5); */
+			/*斜切  deg-->度*/
+			/*transform:skew(45deg,0);*/
+		  }
+		  .box2:hover{
+			transform:skew(45deg,0);
+		  }
+
+		  .box3{
+		  	width: 200px;
+		  	height: 200px;
+		  	background-color: cyan;
+		  	margin: 50px auto 0;  
+		  	transform: all 500mx ease;
+		  	/*3d或平面*/
+		  	transform-style: preserve-3d;
+		  	/*设置初始值,避免bug*/
+		  	transform: perspective(800px) rotate(0deg);
+		  }
+
+		  .box3:hover{
+		  	/*perspective透视*/
+		  	/*moren z轴旋转*/
+		  	transform: perspective(800px) rotate(45deg);
+		  }
+		  /*旋转rotate*/
+		  /*
+			1 x轴向右 Y轴向下 z轴向屏幕
+			2 让轴向对着自己,顺时针方向就是该轴向的旋转方向
+			3
+		  */
+
+	</style>
+</head>
+<body>
+	 <div class="box">
+	 	皇帝的新衣
+	 </div> 
+	 <div class="box2">
+	 	皇帝的新衣
+	 </div>
+	 <div class="box3">
+	 	皇帝的新衣
+	 </div> 
+	 <div class="con"></div>
+</body>
+</html>

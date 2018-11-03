@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>cCSS选择器</title>
+	<style type="text/css">
+		
+		li:nth-last-child(1){
+			background-color: cyan;
+		} 
+ 		
+ 		/*父元素里面唯一的元素,有多个元素 则不起作用*/
+		.box p:only-child{
+			background-color: #f2aba3;
+		}
+		/*为一个一个p元素*/
+		.box p:only-of-type{
+			background-color: #f2aba3;
+		}
+
+		div:empty{
+			background-color: red;
+			height: 15px;
+		}
+	</style>
+</head>
+<body>
+	<!-- ul>li*8 -->
+	<ul>
+		<li>2ul</li>
+		<li>2</li>
+		<li>2</li>
+		<li>2</li>
+		<li>2</li>
+		<li>2</li>
+		<li>2</li>
+		<li>2ul</li>
+	</ul>
+	<br>
+	<br>
+	<br>
+
+	<div class="box">
+		<div>1div</div>
+		<div>2</div>
+		<p>p标签</p>
+		<div>3</div>
+		<div>4div</div>
+		<div>5</div>
+		<div></div>
+		<div>7div</div>
+	</div>
+
+	<div></div>
+</body>
+</html>

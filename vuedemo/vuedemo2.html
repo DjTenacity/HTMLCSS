@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+	<title> vue 计算属性</title>
+	
+</head>
+<body>
+	 <div id="app">  
+	  <!-- 两者等同 -->
+	 	{{ text.split(',').reverse().join(',') }}
+		<!-- vue 计算属性 为了增加阅读性和维护性 -->
+	 	{{reversedText}}
+
+	 	<!-- 计算属性还可以依赖多个vue的实例, 只要其中任意一个数据发生变化,计算属性就会重新执行. -->
+	 	总价:{{ prices }}
+
+	 </div>
+	<script src="https://cdn.bootcss.com/vue/2.5.17/vue.min.js"></script>
+	<script type="text/javascript" >   
+		var app =new Vue(){
+			el:'#app',
+			data:{
+				text="1232,5354,34sad,sds"
+			},
+			// 所有的计算属性都以函数的形式写在这里
+
+			computed:{
+				reversedText:function(){
+					return this.text.split(',').reverse().join(',');
+				}
+			}
+		}
+	</script> 
+
+</body>
+</html> 

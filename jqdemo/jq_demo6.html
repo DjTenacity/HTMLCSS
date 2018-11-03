@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+	<title> jquery简单写法 </title>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" > 
+		$(function(){
+			alert($('.box').html());
+			$('.box').html('<a href="http://www.baidu.com">百度</a>');
+
+			$('.box').attr({title:"先核实div"});
+			alert($('.box').attr('class'));
+
+			alert($('#check').prop({'checked' });
+			$('#check').prop({'checked':true});
+			alert($('.box2').html());
+
+
+			$('.list').click(function(event) {
+				//alert(this.innerHTML);
+				alert($(this).index());
+			});
+
+			$('#btn').click(function() {
+				//淡入淡出
+				//$('.box').fadeToggle();
+				// 显示和隐藏
+				//$('.box').toggle();
+				$('.box').slideToggle();
+			});
+			$('.list').css({background:'gold'}).children().css({background:'green',color:'#fff',marginBottom:10});
+		})
+	</script>
+	<style type="text/css" media="screen">
+		.list li{
+			height: 30px;
+			margin: 10px;
+		}
+
+		.box{
+			width:200px;
+			height:200px;
+			background-color: gold;
+		}
+			
+	</style> 
+</head>
+<body>   
+	<div class="box"> 一个div1 元素 </div>
+	<input type="checkbox" name="" id='check' checked> 多选 
+	<div class="box2"> <span>一个div span 元素 </span></div>
+
+	<div id="div1"> 一个div1 元素 </div>
+	<ul class="list">
+		<li>15</li>
+		<li>26</li>
+		<li>37</li>
+		<li>48</li>
+		<li>59</li>
+		<li>60</li>
+	</ul>
+</body>
+</html>

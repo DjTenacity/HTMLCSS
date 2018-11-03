@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+	<title> vue</title>
+	
+</head>
+<body>
+	 <div id="app">
+	 	<!-- 使用双大括号 是最基本的文本插值方法,它会自动将我们双向绑定的数据实时显示出来 -->
+	 	{{ book }}
+	 	 <br>
+	 	 <!-- 过滤器 , 过滤器也可以串联,而且可以接受参数 -->
+	 	 <!-- {{ date | formatDate | formatDate2}} -->
+	 	 <!-- {{ date | formatDate | formatDate2('a','b')}} -->
+
+	 	{{ date | formatDate }}
+	 	 <br>
+	 	 <!-- 只支持单个表达式,不支持语句和流控制 -->
+	 	 {{ number/100 }}
+	 	 {{ isOk?'当然':'不确定' }}
+	 	 {{ text.split(',').reverse().join(',') }}
+	 	 <br>
+	 	 <span v-html='link'></span>
+	 	 <span v-pre>{{如果想要显示{{}},使用v-pre即可跳过这个元素和他的子元素的编译过程}}</span>
+
+	 </div>
+
+	<script src="https://cdn.bootcss.com/vue/2.5.17/vue.min.js"></script>
+	<script type="text/javascript" > 
+   // 		var app =new Vue({
+   // 			el:'#app',
+   // 			data :{
+   					// a:22,
+   					//book: '插值与表达式',
+   				// }
+   // 		})
+ 		// console.log(app.a);
+
+   		//除了显式地声明数据外, 可以指向一个已有的变量
+
+ 		var myData={
+ 			a:1,
+ 			//不能 data并列存在
+ 			book: '插值与表达式',
+ 			date: new Date(),
+ 			//使用v-html输出后,有可能导致XSS攻击,所以要在服务端对用户提交的内容进行出库,一般可将尖括号'<>'转义
+	 		link: '<a href="#" "email me">email me</a>',
+	 		number:5,
+	 		isOk:false,
+	 		text:'wewew,wrwr,213214,254254214,',
+ 			
+ 		}
+
+
+
+// vue 的生命周期钩子与之类似,比较常用的有:
+// 	___created 实例创建完成后调用,此阶段完成了数据的观测等等,但尚未挂载, $el 还不可用,需要初始化处理一些数据时会比较有用
+// 	___mounted el挂载到实例上后调用,一半我们的第一个业务逻辑会在这里开始
+// 	___beforeDsetory 实例晓辉之前调用.主要解绑一些使用 addEventListener监听的事件等
+ 		var appData =new Vue({
+ 			el:'#app',
+ 			data:myData, 
+ 			filters:{
+ 				formatDate:function(value){
+ 					var date=new Date(value);
+ 					var year =date.getFullYear();
+ 					var month =padDate(date.getMonth()+1);
+ 					var day =padDate(date.getDate());
+ 					var hours =padDate(date.getHours());
+ 					var minutes =padDate(date.getMinutes());
+ 					var seconds =padDate(date.getSeconds());
+
+ 					return year+'-'+month+"-"+day+"-"+hours+"-"+minutes+"-"+seconds;
+ 				}
+ 			},
+ 			created: function(){
+ 				console.log(this.a);
+			},
+			mounted: function(){
+ 				console.log(this.$el );
+ 				//保证作用域
+ 				var _this =this;
+ 				this.timer=setInterval(function(){
+ 					_this.date=new Date();
+ 				},1000);
+			},
+			beforeDsetory:function(){
+				if(this.timer){
+					//在vue实例销毁之前,清楚定时器
+					clearInterval(this.timer);
+				}
+			}
+ 		})
+
+ 		var padDate=function(value){
+ 			//在月份,日期,小时等小于10 时前面加 '0'
+ 			return value < 10 ?'0'+ value : value;
+ 		}
+
+ 		// 属性 , 原数据 可以相互改变
+  		appData.a=3;
+ 		console.log(myData.a);
+
+ 		myData.a=6;
+ 		console.log(appData.a);
+
+
+
+	</script> 
+
+</body>
+</html>

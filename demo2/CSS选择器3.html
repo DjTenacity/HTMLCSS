@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>cCSS选择器</title>
+	<style type="text/css">
+		 input:disabled{
+			background-color: red;
+		 }
+		 input:enabled{
+			background-color: green;
+		 }
+		 input:checked+label{ 
+		 	color: blue;
+		 }
+		 .box{
+		 	width: 100px;
+		 	height: 100px;
+		 	background-color: gold;
+		 	display: none;
+		 }
+
+		 input:checked+div{ 
+		 	display: block;
+		 }
+	</style>
+</head>
+<body>
+	<!-- 失效  disabled="disabled" 或者直接 disabled-->
+	<input type="text" name="" disabled>
+	<input type="text" name="" >
+
+	<input type="checkbox" name="" > <label>选中时的状态</label>
+	<br>
+
+	<input type="checkbox" name="" > <div class="box">div的状态</label>
+
+	 
+</body>
+</html>

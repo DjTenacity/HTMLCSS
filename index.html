@@ -3,23 +3,51 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<title>君冠城的陨落</title>
+
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<!-- <script src="https://cdn.bootcss.com/jquery/3.3.1/core.js"></script> -->
+	<script type="text/javascript" src="./js/slide.js"></script>
+	<script type="text/javascript" src="data.js"></script>
+
+	<script type="text/javascript">
+		$.ajax({
+			url: 'js/data.json',
+			type: 'get',
+			dataType: 'json'
+			// , data: {param1: 'value1'},
+		})
+		.done(function(data) {
+			if(data.code==1){
+				$('.user_welcome em').html(data.data.name);
+				$('.user_welcome').show();
+				$('.user_login_link').hide();
+			}
+		})
+		.fail(function() {
+			console.log("error");
+		})
+		.always(function() {
+			console.log("complete");
+		});
+		
+	</script>
 </head>
 <body>
 	<div class="header_con">
 		<div class="header">
 			<div class="welcome fl">欢迎来到风暴英雄!</div>
 			<div class="user_info fr">
-				<div class="user_login_link fl"  style="display: none;"> 
+				<div class="user_login_link fl"  style="display: block;"> 
 					<a href="#">登录</a>
 					<span>|</span>
 					<a href="#">注册</a>
 				</div>
 
  
-				<div class="user_welcome fl"  style="display: block;"> 
-					欢迎您 : <em>快乐之裤</em>
+				<div class="user_welcome fl"  style="display: none;"> 
+					欢迎您 : <em>快乐</em>
 				</div>
 
 				<div class="user_shopping fl" >
@@ -73,23 +101,23 @@
 		</ul>
 		
 		<!-- 幻灯片 -->
-		<div class="slide_con fl">
+		<div class="slide fl">
 			<!-- ul>(li>a>img)*3 -->
-			<ul class="slide">
-				<li><a href="#"><img class="slide_img" src="images/spooky.jpg" alt="幻灯片"/></a></li> 
+			<ul class="slide_pics">
+				<li> <img src="images/spooky12.jpg" alt="幻灯片"/></li> 
+				<li> <img src="images/spooky.jpg" alt="幻灯片"/></li> 
+				<li> <img src="images/spooky11.jpg" alt="幻灯片"/></li> 
+				<li> <img src="images/spooky1.jpg" alt="幻灯片"/></li> 
 			</ul>
 
 			<div class="prev"></div>
 			<div class="next"></div>
 
 			<ul class="points">
-				<li class="active"></li>
+				<!-- <li class="active"></li> 
 				<li></li>
 				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-
+				<li></li> -->
 			</ul>
 		</div>
 		<div class="adv fl">

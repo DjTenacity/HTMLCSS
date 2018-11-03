@@ -1,0 +1,43 @@
+移动端架构的差异化体现在通信机制上。通信机制主要分为3种：
+1） 对象持有
+2） 接口持有
+3） 路由
+
+热修复框架的核心技术主要有三类，
+分别是代码修复、资源修复和动态链接库修复
+代码修复主要有三个方案，分别是底层替换方案、类加载方案和Instant Run方案
+
+===========================类加载方案========================
+类加载方案基于Dex分包方案，
+65536限制的主要原因是DVM Bytecode的限制，DVM指令集的方法调用指令invoke-kind索引为16bits，最多能引用 65535个方法。
+DVM中的LinearAlloc是一个固定的缓存区，当方法数过多超出了缓存区的大小时会报错。
+
+为了解决65536限制和LinearAlloc限制，从而产生了Dex分包方案。Dex分包方案主要做的是在打包时将应用代码分成多个Dex，
+将应用启动时必须用到的类和这些类的直接引用类放到主Dex中，其他代码放到次Dex中。
+当应用启动时先加载主Dex，等到应用启动后再动态的加载次Dex，从而缓解了主Dex的65536限制和LinearAlloc限制。
+
+Dex分包方案主要有两种，分别是Google官方方案、Dex自动拆包和动态加载方案
+QQ空间的超级补丁和Nuwa是按照上面说得将补丁包放在Element数组的第一个元素得到优先加载。
+微信Tinker将新旧apk做了diff，得到patch.dex，然后将patch.dex与手机中apk的classes.dex做合并，
+生成新的classes.dex，然后在运行时通过反射将classes.dex放在Element数组的第一个元素。
+饿了么的Amigo则是将补丁包中每个dex 对应的Element取出来，
+之后组成新的Element数组，在运行时通过反射用新的Element数组替换掉现有的Element 数组。
+
+采用类加载方案的主要是以腾讯系为主
+==============================底层替换方案====================================
+与类加载方案不同的是，底层替换方案不会再次加载新类，而是直接在Native层修改原有类，由于是在原有类进行修改限制会比较多，
+不能够增减原有类的方法和字段，如果我们增加了方法数，那么方法索引数也会增加，
+这样访问方法时会无法通过索引找到正确的方法，同样的字段也是类似的情况。
+
+底层替换方案直接替换了方法，可以立即生效不需要重启。采用底层替换方案主要是阿里系为主
+
+================================Instant Run方案==============================
+Instant Run在第一次构建apk时，使用ASM在每一个方法中注入了一些代码，
+成员变量localIncrementalChange ，它的值为$change，$change实现了IncrementalChange这个抽象接口。
+当我们点击InstantRun时，如果方法没有变化则$change为null，就调用return，不做任何处理。
+如果方法有变化，就生成替换类，这里我们假设MainActivity的onCreate方法做了修改，
+就会生成替换类MainActivity$override，这个类实现了IncrementalChange接口，
+同时也会生成一个AppPatchesLoaderImpl类，这个类的getPatchedClasses方法会返回被修改的类的列表
+（里面包含了MainActivity），根据列表会将MainActivity的$change设置为MainActivity$override，
+会执行MainActivity$override的access$dispatch方法，access$dispatch方法中会根据参数”onCreate.(Landroid/os/Bundle;)V”执行MainActivity$override的onCreate方法，从而实现了onCreate方法的修改。
+借鉴Instant Run的原理的热修复框架有Robust和Aceso。

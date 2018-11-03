@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>cCSS选择器</title>
+	<style type="text/css">
+		li {
+			background-color: gold;
+		}
+		li:nth-child(1){
+			background-color: cyan;
+		}
+		/*li:nth-child(3){
+			background-color: pink;
+		}*/
+		/*----------------*/
+
+		/*li:nth-child(2n){
+			background-color: #f2aba3;
+		}*/
+
+		/*--------------------*/
+		li:nth-of-type(2n+1){
+			background-color: #f2aba3;
+		}
+
+
+		.box div{
+			background-color: gold;
+			margin-bottom: 10px;
+		}
+		/*nth-child 先去找第三个子元素,然后再看子元素类型是否是div,如果不是就无法匹配, 不起作用*/
+		.box div:nth-child(3){
+			background-color: cyan;
+		}
+		/*第三个目标元素,也就是说父级下的第三个div元素 , 遇见不同的类型 就跳过 */
+		.box div:nth-of-type(3){
+			background-color: #f2aba3;
+		}
+	</style>
+</head>
+<body>
+	<!-- ul>li*8 -->
+	<ul>
+		<li>2ul</li>
+		<li>2</li>
+		<li>2</li>
+		<li>2</li>
+		<li>2</li>
+		<li>2</li>
+		<li>2</li>
+		<li>2ul</li>
+
+
+	</ul>
+	<br>
+	<br>
+	<br>
+
+	<div class="box">
+		<div>1div</div>
+		<div>2</div>
+		<p>p标签</p>
+		<div>3</div>
+		<div>4div</div>
+		<div>5</div>
+		<div>6</div>
+		<div>7div</div>
+	</div>
+</body>
+</html>

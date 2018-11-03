@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CSS animation 关键帧动画</title>
+	<style type="text/css">
+		  	.box{
+		  		width: 100px;
+		  		height: 100px;
+		  		border: 1px solid #222; 
+		  		background-color: gold;
+		  		/*0s延迟   5次数  infinite无限次  alternate 动画结束后返回(反之normal)*/
+		  		animation: moving 500ms ease 0s  5 alternate;
+		  		animation-play-state: paused;
+		  		/*没有贝瑟尔曲线*/
+		  	}
+		  	@keyframes moving{
+		  		from{
+					width: 100px;
+		  		}
+		  		to{
+		  			width: 500px;
+		  		}
+		  	}
+
+		  	.box:hover{
+		  		animation-play-state: running;
+		  	}
+
+
+		  	.box2{
+		  		width: 630px;
+		  		height: 430px;
+		  		border: 1px solid #222; 
+		  		background-color: gold;
+		  		overflow: hidden;
+		  		position: relative;
+		  	}
+		  	.box2 img{
+		  		position:absolute;
+		  		left: 0;
+		  		top: 0;
+		  		animation: walking 5000ms steps(8) infinite;
+		  	}
+
+		  	@keyframes walking{
+		  		from{
+					left: 0px;
+		  		}
+		  		to{
+		  			left: -830px;
+		  		}
+		  	}
+
+		  	/*----------------------*/
+		  	.box3{
+		  		width: 100px;
+		  		height: 100px;
+		  		background-color: gold;
+		  		animation: walkings 5000ms ease 0s  5 both;
+		  		/*animation-play-state: paused;*/
+		  	}
+		  	@keyframes walkings{
+		  		 0% {
+		  		 	transform: translateX(0px);
+		  			background-color: blue;
+					border-radius: 30%;
+		  		 }
+		  		 20% {
+		  		 	transform: translateX(100px);
+		  			background-color: cyan;
+		  		 }
+		  		 50% {
+		  		 	transform: translateX(300px);
+		  			background-color: orange;
+					border-radius: 50%;
+		  		 }
+		  		 80% {
+		  		 	transform: translateX(0px);
+		  			background-color: red;
+					border-radius: 0%;
+		  		 }
+		  	}
+
+	</style>
+</head>
+<body>
+	 <div class="box">
+	 	皇帝的新衣
+	 </div>
+
+	 <div class="box2">
+	 	<img src="../images/9.jpg" alt="动画">
+	 </div>
+
+	 <div class="box3">
+	 	皇帝的新衣
+	 </div>
+</body>
+</html>
