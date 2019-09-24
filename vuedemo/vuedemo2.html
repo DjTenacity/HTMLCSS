@@ -21,13 +21,50 @@
 		var app =new Vue(){
 			el:'#app',
 			data:{
-				text="1232,5354,34sad,sds"
+				text="1232,5354,34sad,sds",
+				package1:[{
+					name:"ipad",
+					price:3333,
+					count:1
+				},{
+					name:"iphone",
+					price:3733,
+					count:1
+				},{
+					name:"xiaomi",
+					price:3633,
+					count:1
+				}],
+				package2:[{
+					name:"huawei",
+					price:3133,
+					count:1
+				},{
+					name:"iphone",
+					price:3733,
+					count:1
+				},{
+					name:"kupai",
+					price:3633,
+					count:1
+				}],
+
 			},
-			// 所有的计算属性都以函数的形式写在这里
+			// 所有的计算属性都以函数的形式写在vue实例的computed这里
 
 			computed:{
 				reversedText:function(){
 					return this.text.split(',').reverse().join(',');
+				},
+				prices:function(){
+					var prices = 0;
+					for (var i = this.package1.length - 1; i >= 0; i--) {
+						prices+=this.package1[i].price * this.package1[i].count;
+					}
+					for (var i = this.package2.length - 1; i >= 0; i--) {
+						prices+=this.package2[i].price * this.package2[i].count;
+					}
+					return prices;
 				}
 			}
 		}

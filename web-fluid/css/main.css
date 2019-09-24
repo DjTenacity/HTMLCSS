@@ -1,0 +1,228 @@
+.main_wrap{
+	/*绝对定位  , 可能用到微信上面去,所以不是固定定位*/
+	/*main_wrap 和屏幕一样宽一样高*/
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+.header{
+	height: 50px;
+	background-color: #134e88;
+	position: relative;
+}
+.header .logo{
+	width: 89px;
+	height: 46px;
+	display:block;
+	margin:2px auto 0;
+}
+.header .search{
+	/*相对于header定位*/
+	position: absolute;
+	width: 22px;
+	height: 22px;
+	right: 12px;
+	top: 15px;
+	background: url(../images/ic_search.png) left top no-repeat;
+}
+.header .logo img{ 
+	/*图片等比例缩放*/
+	width: 80%;
+}
+.center_wrap{
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 50px;
+	bottom: 70px;
+	background-color: #efefef;
+	overflow-x:hidden;
+	/*高度大于屏幕时纵向会出现滚动条*/
+	overflow-y: auto;
+}
+/*图片的缩放*/
+.slide img{
+	width: 100%;
+}
+
+.menu{
+	height: 180px;
+	background-color: #fff;
+	margin-top: 10px;
+	padding-top: 8px;
+}
+.menu li{
+	width: 25%;
+	height: 81px;
+	float: left;
+}
+.menu li a{
+	display: block;
+	width: 56px;
+	height: 56px;
+	background: url(../images/icons2.png) 11px 10px no-repeat;
+	background-size: 54px 600px;
+	margin: 0 auto;
+}
+.menu li:nth-child(2) a{
+	background-position: 12px -65px;
+}
+.menu li:nth-child(3) a{
+	background-position: 12px -138px;
+}
+.menu li:nth-child(4) a{
+	background-position: 11px -208px;
+}
+.menu li:nth-child(5) a{
+	background-position: 10px -282px;
+}
+.menu li:nth-child(6) a{
+	background-position: 10px -354px;
+}
+.menu li:nth-child(7) a{
+	background-position: 11px -424px;
+}
+.menu li:nth-child(8) a{
+	background-position: 12px -491px;
+}
+ 
+.menu li h2{
+	height: 26px;
+	font: 13px/26px 'Microsoft Yahei';
+	text-align:center;
+	color: #666;
+}
+.common_model{
+	background-color: #fff;
+	margin-top: 0.5rem;
+}
+
+.common_title{
+	height: 0.9rem;
+	margin: 0.8rem auto 0px;
+}
+.common_title h3{
+	border-left: 0.25rem solid #fbc83d;
+	font: bold 15px/0.9rem 'Microsoft Yahei';
+	color: #fbc83d;
+	/* 首行缩进 */
+	text-indent: 0.4rem;
+}
+
+.common_title a{
+	font: 12px/0.9rem 'Microsoft Yahei';
+	color: #7f7f7f;
+}
+.banner{
+	width: 95%;
+	margin: 0.5rem auto 0;
+}
+.banner img{
+	/*自适应*/
+	width: 100%;
+}
+.goods_list{
+	margin-top: 0.5rem auto 0.7rem;
+	width: 23.275rem;
+	height: 12.5rem;
+	background-color: #red;
+}
+.goods_list li{
+	float: left; 
+	width: 7.69rem;
+	height: 12.5rem;
+	position: relative;
+	border-right: 1px solid #e7e7e7;
+}
+.goods_list li .goods_pic{
+	display: block;
+	width: 6rem;
+	height: 6.5rem;
+	margin: 0.5rem auto 0;
+}
+.goods_list li .goods_pic img{
+	width: 100%;
+}
+.goods_list li .goods_name{
+	width:5.0rem;
+	/*自动加省略号*/
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+
+	font:15px/15px 'Microsoft Yahei';
+	color:#666;
+	margin:0.75rem auto 0;
+}
+
+.goods_list li .goods_unit{
+	width:5rem;
+	font:12px/12px 'Microsoft Yahei';
+	color:#bbb;
+	margin:0.8rem auto 0;
+
+}
+
+.goods_list li .goods_price{
+	width:5rem;
+	font:12px/12px 'Microsoft Yahei';
+	color:#ff4400;
+	margin:0.5rem auto 0;
+}
+
+.goods_list li .add_chart{
+	position:absolute;
+	right:0.675rem;
+	bottom:0.8rem;
+	width:1.6rem;
+	height:1.6rem;
+	background-color: #dedede;
+	/*background:url(../images/ic_fav2.png) left -27rem no-repeat;*/
+	/*background-size:3rem 42rem;*/
+}
+/*响应式布局*/
+@media (min-width:380px) {
+
+	.goods_list li .goods_price{
+		font:14px/14px 'Microsoft Yahei';
+	}
+
+	.goods_list li .goods_unit{
+		font:14px/14px 'Microsoft Yahei';
+	}
+}
+
+.footer{
+	position: absolute;
+	height: 3.7rem;
+	background-color: #fff;
+	left: 0;
+	width: 100%;
+	bottom: 0;
+}
+.footer ul{
+	width: 100%;
+	height: 2.5rem;
+	float: left;
+}
+.footer li{
+	width: 25%;
+	float: left;
+}
+.footer li a{
+	display: block;
+	width: 1.875rem;
+	height: 1.9rem;
+	margin: 0.45rem auto 0;
+} 
+.footer li a img{ 
+	width: 100%;
+} 
+.footer li h2{
+	font:12px/12px 'Microsoft Yahei';
+	color:#949392;
+	text-align:center;
+	margin-top:0.2rem;
+}
